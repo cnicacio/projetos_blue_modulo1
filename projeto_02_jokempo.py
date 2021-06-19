@@ -20,7 +20,6 @@ pedra = '''
       (____)
 ---.__(___)
 '''
-
 papel = '''
     _______
 ---'   ____)____
@@ -29,7 +28,6 @@ papel = '''
          _______)
 ---.__________)
 '''
-
 tesoura = '''
     _______
 ---'   ____)____
@@ -95,22 +93,17 @@ while True:
                 print(f'Você jogou:\n{tesoura}\n\nEMPATE!')
     
     novamente = str(input('Deseja jogar novamente [S/N]? ')).strip().upper()[0]
-
-    if novamente not in 'SN':
+    while novamente not in 'SN':
         novamente = str(input('Resposta inválida! Deseja jogar novamente [S/N]? ')).strip().upper()[0]
-
-    elif novamente == 'N':
+    if novamente == 'N':
         break
 
 print(f'''Você venceu {jogador} rodadas
 O computador venceu {computador} rodadas
 ''')
-
 if jogador > computador:
     print('Você é o grande vencedor!')
-
 elif jogador < computador:
     print('O computador é o grande vencedor!')
-
 else:
     print('O grande duelo foi empatado!')
