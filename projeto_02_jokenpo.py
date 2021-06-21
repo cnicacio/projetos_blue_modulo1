@@ -37,21 +37,20 @@ tesoura = '''
 ---.__(___)
 '''
 
-jogador = 0
-computador = 0
+jogador = computador = 0
 
 while True:
     jogadas = int(input('Digite o número de jogadas: '))
-    for c in range(jogadas):
+    for c in range(jogadas): # para o número de jogadas definidas, repete-se o que segue
         jogada = str(input(''' FAÇA A SUA JOGADA
         Pedra [1] 
         Papel [2] 
         Tesoura [3]      
         '''))
 
-        if jogada not in '123':
+        while jogada not in '123': # tratamento de erro para o jogador inserir a jogada corretamente
             jogada = str(input('Digite corretamente. Pedra [1], papel [2] ou tesoura? [3] '))
-        comp_jogada = str(randint(1,3))
+        comp_jogada = str(randint(1,3)) # computador "sorteará" um número entre 1 e 3 para fazer a sua jogada aleatória
 
         print('JO')
         sleep(1)
@@ -92,18 +91,27 @@ while True:
             if jogada == '3':
                 print(f'Você jogou:\n{tesoura}\n\nEMPATE!')
     
-    novamente = str(input('Deseja jogar novamente [S/N]? ')).strip().upper()[0]
-    while novamente not in 'SN':
+    novamente = str(input('Deseja jogar novamente [S/N]? ')).strip().upper()[0] # ao fim, pergunta-se se o jogador quer jogar novamente
+    while novamente not in 'SN': # tratamento de erro para o jogador inserir a opção corretamente
         novamente = str(input('Resposta inválida! Deseja jogar novamente [S/N]? ')).strip().upper()[0]
     if novamente == 'N':
         break
 
-print(f'''Você venceu {jogador} rodadas
+if jogador > computador: # o vencedor é o jogador
+    print(f'''Você venceu {jogador} rodadas
 O computador venceu {computador} rodadas
-''')
-if jogador > computador:
-    print('Você é o grande vencedor!')
-elif jogador < computador:
-    print('O computador é o grande vencedor!')
-else:
-    print('O grande duelo foi empatado!')
+
+Você é o grande vencedor!
+    ''')
+elif jogador < computador: # o vencedor é o computador
+    print(f'''Você venceu {jogador} rodadas
+O computador venceu {computador} rodadas
+
+O computador é o grande vencedor!
+    ''')
+else: # em caso de empate
+    print(f'''Você venceu {jogador} rodadas
+O computador venceu {computador} rodadas
+
+O grande duelo foi empatado!
+    ''')
