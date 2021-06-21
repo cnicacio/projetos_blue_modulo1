@@ -37,7 +37,7 @@ tesoura = '''
 ---.__(___)
 '''
 
-jogador = computador = empate = 0
+jogador = computador = empate = 0 # variáveis para definir o número de vitórias do usuário/computador ou empates
 
 while True:
     jogadas = int(input('Digite o número de jogadas: '))
@@ -70,13 +70,13 @@ while True:
 
         if (jogada - comp_jogada) == 0: # EMPATE (NÚMEROS IGUAIS NA RODADA)
             print('RODADA EMPATADA!')
-            empate += 1
+            empate += 1 # contabiliza empate
         elif (jogada - comp_jogada) == 1 or (jogada - comp_jogada) == -2: # COMBINAÇÃO DE RESULTADOS PARA A VITÓRIA DO USUÁRIO
             print('VOCÊ VENCEU!')
-            jogador += 1
+            jogador += 1 # contabiliza vitória do usuário
         elif (jogada - comp_jogada) == -1 or (jogada - comp_jogada) == 2: # COMBINAÇÃO DE RESULTADOS PARA A VITÓRIA DO COMPUTADOR
             print('VOCÊ PERDEU!')
-            computador += 1
+            computador += 1 # contabiliza vitória do computador
 
     novamente = str(input('Deseja jogar novamente [S/N]? ')).strip().upper()[0] # ao fim do range(jogadas), ou seja, após o número de rodadas definida pelo usuário, pergunta-se se o jogador quer jogar novamente
     while novamente not in 'SN': # tratamento de erro para o jogador inserir a opção corretamente
