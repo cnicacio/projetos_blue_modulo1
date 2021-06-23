@@ -12,6 +12,8 @@ Utilizando os conceitos aprendidos até estruturas de repetição, crie um progr
 from random import randint
 from time import sleep
 
+# lista de opções para as jogadas possíveis no Jokenpô
+
 opcoes = ['''
     _______
 ---'   ____)
@@ -36,13 +38,9 @@ opcoes = ['''
       (____)
 ---.__(___)
 '''
-<<<<<<< HEAD
 ]
-jogador = computador = empate = 0
-=======
 
-jogador = computador = empate = 0 # variáveis para definir o número de vitórias do usuário/computador ou empates
->>>>>>> 4e6376042158c6b8911aa3dd33c7fdad6f668c5f
+jogador = computador = empate = 0
 
 while True:
     jogadas = int(input('Digite o número de jogadas: '))
@@ -59,19 +57,19 @@ while True:
         sleep(1)
         print('PO')
 
-        print(f'O computador jogou:\n{opcoes[comp_jogada - 1]}')
+        print(f'O computador jogou:\n{opcoes[comp_jogada - 1]}') # fatiamento de lista, imprime no console a jogada do computador correspondente ao número sorteado
 
-        print(f'Você jogou:\n{opcoes[jogada - 1]}')
+        print(f'Você jogou:\n{opcoes[jogada - 1]}') # fatiamento de lista, imprime no console a jogada do usuário correspondente ao número escolhido para a jogada
 
         if (jogada - comp_jogada) == 0: # EMPATE (NÚMEROS IGUAIS NA RODADA)
             print('RODADA EMPATADA!')
-            empate += 1 # contabiliza empate
+            empate += 1
         elif (jogada - comp_jogada) == 1 or (jogada - comp_jogada) == -2: # COMBINAÇÃO DE RESULTADOS PARA A VITÓRIA DO USUÁRIO
             print('VOCÊ VENCEU!')
-            jogador += 1 # contabiliza vitória do usuário
+            jogador += 1
         elif (jogada - comp_jogada) == -1 or (jogada - comp_jogada) == 2: # COMBINAÇÃO DE RESULTADOS PARA A VITÓRIA DO COMPUTADOR
             print('VOCÊ PERDEU!')
-            computador += 1 # contabiliza vitória do computador
+            computador += 1
 
     novamente = str(input('Deseja jogar novamente [S/N]? ')).strip().upper()[0] # ao fim do range(jogadas), ou seja, após o número de rodadas definida pelo usuário, pergunta-se se o jogador quer jogar novamente
     while novamente not in 'SN': # tratamento de erro para o jogador inserir a opção corretamente
@@ -88,6 +86,6 @@ if jogador > computador: # o vencedor é o jogador
 
 elif jogador < computador: # o vencedor é o computador
     print(f'O computador é o grande vencedor!')
-
+    
 else: # em caso de empate
     print(f'O grande duelo foi empatado!')
