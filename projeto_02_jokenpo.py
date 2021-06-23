@@ -36,13 +36,9 @@ opcoes = ['''
       (____)
 ---.__(___)
 '''
-<<<<<<< HEAD
 ]
-jogador = computador = empate = 0
-=======
 
 jogador = computador = empate = 0 # variáveis para definir o número de vitórias do usuário/computador ou empates
->>>>>>> 4e6376042158c6b8911aa3dd33c7fdad6f668c5f
 
 while True:
     jogadas = int(input('Digite o número de jogadas: '))
