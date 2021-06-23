@@ -12,23 +12,23 @@ Utilizando os conceitos aprendidos até estruturas de repetição, crie um progr
 from random import randint
 from time import sleep
 
-pedra = '''
+opcoes = ['''
     _______
 ---'   ____)
       (_____)
       (_____)
       (____)
 ---.__(___)
+''',
 '''
-papel = '''
     _______
 ---'   ____)____
           ______)
           _______)
          _______)
 ---.__________)
+''',
 '''
-tesoura = '''
     _______
 ---'   ____)____
           ______)
@@ -36,7 +36,7 @@ tesoura = '''
       (____)
 ---.__(___)
 '''
-
+]
 jogador = computador = empate = 0
 
 while True:
@@ -54,19 +54,9 @@ while True:
         sleep(1)
         print('PO')
 
-        if comp_jogada == 1: # COMPUTADOR JOGOU PEDRA
-            print(f'O computador jogou:\n{pedra}')
-        if comp_jogada == 2: # COMPUTADOR JOGOU PAPEL
-                print(f'O computador jogou:\n{papel}')
-        if comp_jogada == 3: # COMPUTADOR JOGOU TESOURA
-                print(f'O computador jogou:\n{tesoura}')
+        print(f'O computador jogou:\n{opcoes[comp_jogada - 1]}')
 
-        if jogada == 1: # USUÁRIO JOGOU PEDRA
-            print(f'Você jogou:\n{pedra}')
-        elif jogada == 2: # USUÁRIO JOGOU PAPEL
-            print(f'Você jogou:\n{papel}')
-        elif jogada == 3: # USUÁRIO JOGOU TESOURA
-            print(f'Você jogou:\n{tesoura}')
+        print(f'Você jogou:\n{opcoes[jogada - 1]}')
 
         if (jogada - comp_jogada) == 0: # EMPATE (NÚMEROS IGUAIS NA RODADA)
             print('RODADA EMPATADA!')
