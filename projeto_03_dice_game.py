@@ -18,7 +18,7 @@ dice = dict() # dicionário com as jogadas dos jogos de dados
 players = list() # armazena os nomes dos jogadores em uma lista
 points = [0, 0, 0, 0] # armazena os pontos dos jogadores em uma lista
 
-# lista com os resultados do jogo de dados
+# lista com os resultados possíveis do jogo de dados de 6 lados
 results = ['''
 +-------+
 |       |
@@ -78,7 +78,7 @@ while True: # condição verdadeira = o usuário está jogando
         # imprimirá uma sequência de resultados para cada rodada determinada em 'round'
         print(f'\n\nRODADA {r+1}:\n') 
 
-        for k, v in dice.items(): # para cara chave 'k' e valor 'v' no dicionário 'dice', retorna o número que cada jogador tirou no dado
+        for k, v in dice.items(): # para cada chave 'k' e valor 'v' no dicionário 'dice', retorna o número que cada jogador tirou no dado
             print(f'''O jogador {k} jogou:
             {results[v-1]}
             ''')
