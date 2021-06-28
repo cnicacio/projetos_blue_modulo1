@@ -82,7 +82,7 @@ while True: # condição verdadeira = o usuário está jogando
             print(f'''O jogador {k} jogou:
             {results[v-1]}
             ''')
-            sleep(2) # 2 segundos de intervalo entre as jogadas de cada um
+            # sleep(2) # 2 segundos de intervalo entre as jogadas de cada um
 
         sorted_dice = dict(sorted(dice.items(), key=itemgetter(1),reverse=True)) # retornará o dicionário ordenado pelos valores, do maior para o menor
 
@@ -99,11 +99,15 @@ while True: # condição verdadeira = o usuário está jogando
     maximum = max(points) # retornará o maior valor da lista de pontos, ou seja, o vencedor
     champion = players[points.index(maximum)] # retornará o jogador que foi campeão a partir do mesmo índice da lista 'points' que possui o valor máximo
     sorted_points = sorted(points) # ordena a lista do maior para o menor número de pontos
+    result = dict(zip(players,points)) # criando um dicionário com os jogadores e o número de vitórias de cada um
+
+    for a, b in result.items(): # retornará o número de vitórias de cada jogador
+        print(f'{a}: {b} vitória(s)')
 
     if sorted_points[-1] == sorted_points[-2]: # se houver dois ou mais valores de máximo iguais na lista de pontos, o jogo termina empatado
         print(f'O jogo de dados com {round} rodadas terminou empatado!\n')
     else: # caso contrário, há um vencedor
-        print(f'O grande campeão é {champion} com {maximum} vitorias\n')
+        print(f'O grande campeão é {champion} com {maximum} vitoria(s)\n')
 
     # pergunta ao usuário se quer continuar jogando, só sai do loop se o usuário não quiser continuar ('N')
     new_game = str(input('Deseja jogar novamente [S/N]? ')).strip().upper()[0]
