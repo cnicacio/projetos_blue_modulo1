@@ -13,6 +13,7 @@ from random import randint # sorteará os números que cada jogador tirará no d
 from random import sample # sorteia a ordem que cada jogador jogará o dado na rodada
 from time import sleep # tempo entre as jogadas
 from operator import itemgetter # importa a biblioteca itemgetter para ordenar o dicionário do maior para o menor valor
+import os # limpar o console caso o usuário queira jogar novamente
 
 dice = dict() # dicionário com as jogadas dos jogos de dados
 players = list() # armazena os nomes dos jogadores em uma lista
@@ -82,7 +83,7 @@ while True: # condição verdadeira = o usuário está jogando
             print(f'''O jogador {k} jogou:
             {results[v-1]}
             ''')
-            # sleep(2) # 2 segundos de intervalo entre as jogadas de cada um
+            sleep(2) # 2 segundos de intervalo entre as jogadas de cada um
 
         sorted_dice = dict(sorted(dice.items(), key=itemgetter(1),reverse=True)) # retornará o dicionário ordenado pelos valores, do maior para o menor
 
@@ -117,5 +118,7 @@ while True: # condição verdadeira = o usuário está jogando
 
     if new_game == 'N': # sai do loop
         break
+    else:
+        os.system('cls||clear')
 
 print('OBRIGADO POR JOGAR! ATÉ A PRÓXIMA')
