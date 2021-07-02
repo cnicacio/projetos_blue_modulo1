@@ -67,10 +67,10 @@ def valid_results():
 
     for a, b in valid_results_dict.items():
         print(f'{a}: {100*(b/sum(valid_votes)):.2f} % dos votos válidos')
-    
+
     max_votes = max(valid_votes)
     winner = valid_candidates[valid_votes.index(max_votes)]
-    
+
     if sorted(valid_votes)[-1] > sorted(valid_votes)[-2]:
         print(f'\nO vencedor das eleições é {winner}')
     else:
